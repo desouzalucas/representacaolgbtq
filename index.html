@@ -105,14 +105,14 @@
 
                 <div class="mb-12">
                     <h3 class="text-2xl font-bold mb-4 text-[#bc5090]">2017-2018: A Conquista do Mainstream</h3>
-                    <div class="relative pl-8 timeline-item">
+                     <div class="relative pl-8 timeline-item">
                         <p class="mb-4">A representação atinge o sucesso comercial com <span class="font-bold">Com Amor, Simon</span>, que adapta a fórmula da comédia romântica. Em contraponto, <span class="font-bold">O Mau Exemplo de Cameron Post</span> serve como um lembrete de que as narrativas de opressão institucional ainda coexistem com as de celebração.</p>
                     </div>
                 </div>
 
                 <div>
                     <h3 class="text-2xl font-bold mb-4 text-[#ff6361]">2019-2024: Diversificação e Novas Fronteiras</h3>
-                    <div class="relative pl-8 timeline-item">
+                     <div class="relative pl-8 timeline-item">
                         <p class="mb-4">O período mais recente é marcado pela normalização e diversificação. A identidade LGBTQ+ torna-se um dos vários aspectos dos personagens (<span class="font-bold">Fora de Série</span>), e novas identidades, como a transgênero, ganham protagonismo em gêneros populares com <span class="font-bold">Tudo é Possível</span>.</p>
                     </div>
                 </div>
@@ -127,4 +127,274 @@
 
         <section id="charts" class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 mb-16">
             <div class="bg-white p-6 rounded-lg shadow-md">
-                <h3 class="text-xl font-bold text-center mb-4">Aprovação Crítica ao Longo do Tempo (RT
+                <h3 class="text-xl font-bold text-center mb-4">Aprovação Crítica ao Longo do Tempo (RT %)</h3>
+                <p class="text-center text-sm text-gray-600 mb-4">A recepção crítica positiva para filmes com temática LGBTQ+ tem se mantido consistentemente alta, indicando uma crescente aceitação e demanda por essas histórias.</p>
+                <div class="chart-container">
+                    <canvas id="criticalReceptionChart"></canvas>
+                </div>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <h3 class="text-xl font-bold text-center mb-4">Evolução da Resolução da Trama</h3>
+                <p class="text-center text-sm text-gray-600 mb-4">Observa-se uma clara mudança de desfechos trágicos ou ambíguos para resoluções majoritariamente positivas, refletindo a transição para narrativas mais afirmativas.</p>
+                 <div class="chart-container">
+                    <canvas id="plotResolutionChart"></canvas>
+                </div>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <h3 class="text-xl font-bold text-center mb-4">Tipos de Conflito Principal</h3>
+                <p class="text-center text-sm text-gray-600 mb-4">Enquanto conflitos internos e sociais são constantes, a análise mostra como o foco narrativo se deslocou entre traumas psicológicos, pressões familiares e opressão institucional.</p>
+                 <div class="chart-container">
+                    <canvas id="conflictTypeChart"></canvas>
+                </div>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <h3 class="text-xl font-bold text-center mb-4">Representação de Identidades no Corpus</h3>
+                <p class="text-center text-sm text-gray-600 mb-4">O corpus analisado, um reflexo do cinema de maior visibilidade, ainda é predominantemente focado em experiências de homens gays, apontando para a necessidade de maior diversidade.</p>
+                 <div class="chart-container">
+                    <canvas id="identityRepresentationChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <section id="gaps" class="text-center bg-white p-8 rounded-lg shadow-md">
+            <h2 class="text-3xl font-bold mb-4">Lacunas na Representação: As Histórias Não Contadas</h2>
+            <p class="max-w-3xl mx-auto mb-6 text-gray-600">Apesar do progresso, a jornada por uma representatividade plena não terminou. Muitas identidades permanecem sub-representadas ou invisíveis no cinema de grande alcance.</p>
+            <div class="flex justify-center items-center space-x-8 text-lg">
+                <div class="flex flex-col items-center">
+                    <span class="text-4xl mb-2">B</span>
+                    <span class="font-bold">Bissexualidade</span>
+                </div>
+                <div class="flex flex-col items-center">
+                    <span class="text-4xl mb-2">A</span>
+                    <span class="font-bold">Assexualidade</span>
+                </div>
+                <div class="flex flex-col items-center">
+                    <span class="text-4xl mb-2">NB</span>
+                    <span class="font-bold">Não-Binariedade</span>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="text-center p-6 mt-8 bg-gray-800 text-white">
+        <p>Infográfico gerado com base na pesquisa "A Evolução da Representação de Pessoas LGBTQ+ em Filmes do Gênero Coming of Age entre os Anos 2000 e 2024".</p>
+    </footer>
+
+    <script>
+        const filmData = [
+            { title: "Mistérios da Carne", year: 2004, director: "Gregg Araki", identity: "Gay", conflict: "Interno (Trauma)", resolution: "Ambígua", rt: 87 },
+            { title: "Orações para Bobby", year: 2009, director: "Russell Mulcahy", identity: "Gay", conflict: "Familiar", resolution: "Trágica", rt: 67 },
+            { title: "Tomboy", year: 2011, director: "Céline Sciamma", identity: "Identidade de Gênero", conflict: "Social", resolution: "Ambígua", rt: 96 },
+            { title: "Azul é a Cor Mais Quente", year: 2013, director: "Abdellatif Kechiche", identity: "Lésbica", conflict: "Interno (Relacional)", resolution: "Ambígua", rt: 88 },
+            { title: "Hoje Eu Quero Voltar Sozinho", year: 2014, director: "Daniel Ribeiro", identity: "Gay", conflict: "Interno (Independência)", resolution: "Positiva", rt: 93 },
+            { title: "Moonlight", year: 2016, director: "Barry Jenkins", identity: "Gay", conflict: "Social (Interseccional)", resolution: "Ambígua", rt: 98 },
+            { title: "Me Chame Pelo Seu Nome", year: 2017, director: "Luca Guadagnino", identity: "Gay", conflict: "Interno (Relacional)", resolution: "Ambígua", rt: 94 },
+            { title: "Com Amor, Simon", year: 2017, director: "Greg Berlanti", identity: "Gay", conflict: "Social (Chantagem)", resolution: "Positiva", rt: 92 },
+            { title: "O Mau Exemplo de Cameron Post", year: 2018, director: "Desiree Akhavan", identity: "Lésbica", conflict: "Social (Institucional)", resolution: "Positiva", rt: 86 },
+            { title: "Fora de Série", year: 2019, director: "Olivia Wilde", identity: "Lésbica", conflict: "Interno (Amizade)", resolution: "Positiva", rt: 96 },
+            { title: "Meus Encontros com Amber", year: 2020, director: "David Freyne", identity: "Gay, Lésbica", conflict: "Social (Pressão)", resolution: "Positiva", rt: 94 },
+            { title: "Tudo é Possível", year: 2022, director: "Billy Porter", identity: "Transgênero", conflict: "Social (Transfobia)", resolution: "Positiva", rt: 85 }
+        ];
+
+        const colors = {
+            blue: '#003f5c',
+            purple: '#58508d',
+            pink: '#bc5090',
+            red: '#ff6361',
+            orange: '#ffa600',
+            lightGray: '#d1d5db'
+        };
+        
+        const chartColors = [colors.purple, colors.pink, colors.red, colors.orange, colors.blue];
+
+        function wrapLabel(str, maxWidth) {
+            if (str.length <= maxWidth) {
+                return str;
+            }
+            const words = str.split(' ');
+            let lines = [];
+            let currentLine = '';
+            for (const word of words) {
+                if ((currentLine + word).length > maxWidth && currentLine.length > 0) {
+                    lines.push(currentLine.trim());
+                    currentLine = '';
+                }
+                currentLine += word + ' ';
+            }
+            lines.push(currentLine.trim());
+            return lines;
+        }
+
+        const tooltipConfig = {
+            plugins: {
+                tooltip: {
+                    callbacks: {
+                        title: function(tooltipItems) {
+                            const item = tooltipItems[0];
+                            let label = item.chart.data.labels[item.dataIndex];
+                            if (Array.isArray(label)) {
+                              return label.join(' ');
+                            }
+                            return label;
+                        }
+                    }
+                }
+            }
+        };
+
+        function populateFilmCorpus() {
+            const container = document.getElementById('filmCorpusContainer');
+            if (!container) return;
+
+            const identityColors = {
+                'Gay': { bg: 'bg-[#E15554]', text: 'text-white' }, // Terracotta
+                'Lésbica': { bg: 'bg-[#779977]', text: 'text-white' }, // Moss Green
+                'Identidade de Gênero': { bg: 'bg-[#FFC759]', text: 'text-gray-800' }, // Yellow
+                'Transgênero': { bg: 'bg-[#4D9DE0]', text: 'text-white' }, // Cyan Blue
+                'Gay, Lésbica': { bg: 'bg-[#393E46]', text: 'text-white' } // Slate Blue
+            };
+
+            filmData.forEach((film) => {
+                const card = document.createElement('div');
+                const colorInfo = identityColors[film.identity] || { bg: 'bg-gray-700', text: 'text-white' };
+                
+                card.className = `film-card rounded-lg shadow-md p-6 flex flex-col justify-start ${colorInfo.bg} ${colorInfo.text}`;
+                
+                card.innerHTML = `
+                    <div class="flex-shrink-0">
+                        <h3 class="font-bold text-xl mb-3">${film.title}</h3>
+                        <p class="text-sm opacity-90 mb-1"><span class="font-bold">Ano:</span> ${film.year}</p>
+                        <p class="text-sm opacity-90 mb-1"><span class="font-bold">Identidade:</span> ${film.identity}</p>
+                    </div>
+                    <div class="card-details mt-4">
+                        <p class="text-sm opacity-90 mb-1"><span class="font-bold">Direção:</span> ${film.director}</p>
+                        <p class="text-sm opacity-90 mb-1"><span class="font-bold">Conflito:</span> ${film.conflict}</p>
+                        <p class="text-sm opacity-90"><span class="font-bold">Resolução:</span> ${film.resolution}</p>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            populateFilmCorpus();
+
+            new Chart(document.getElementById('criticalReceptionChart'), {
+                type: 'line',
+                data: {
+                    labels: filmData.map(f => wrapLabel(`${f.title} (${f.year})`, 16)),
+                    datasets: [{
+                        label: 'Pontuação no Rotten Tomatoes (%)',
+                        data: filmData.map(f => f.rt),
+                        borderColor: colors.pink,
+                        backgroundColor: 'rgba(188, 80, 144, 0.1)',
+                        fill: true,
+                        tension: 0.1
+                    }]
+                },
+                options: {
+                    ...tooltipConfig,
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: false,
+                            min: 50,
+                            max: 100
+                        }
+                    }
+                }
+            });
+
+            const resolutionCounts = filmData.reduce((acc, f) => {
+                acc[f.resolution] = (acc[f.resolution] || 0) + 1;
+                return acc;
+            }, {});
+            new Chart(document.getElementById('plotResolutionChart'), {
+                type: 'doughnut',
+                data: {
+                    labels: Object.keys(resolutionCounts),
+                    datasets: [{
+                        label: 'Resolução da Trama',
+                        data: Object.values(resolutionCounts),
+                        backgroundColor: chartColors,
+                        borderColor: '#fff',
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    ...tooltipConfig,
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                        }
+                    }
+                }
+            });
+
+            const conflictCounts = filmData.reduce((acc, f) => {
+                const cleanConflict = f.conflict.split('(')[0].trim();
+                acc[cleanConflict] = (acc[cleanConflict] || 0) + 1;
+                return acc;
+            }, {});
+            new Chart(document.getElementById('conflictTypeChart'), {
+                type: 'bar',
+                data: {
+                    labels: Object.keys(conflictCounts),
+                    datasets: [{
+                        label: 'Número de Filmes por Tipo de Conflito',
+                        data: Object.values(conflictCounts),
+                        backgroundColor: chartColors,
+                    }]
+                },
+                options: {
+                    ...tooltipConfig,
+                    indexAxis: 'y',
+                    responsive: true,
+                    maintainAspectRatio: false,
+                     plugins: {
+                        legend: {
+                            display: false
+                        }
+                    }
+                }
+            });
+
+            const identityCounts = filmData.reduce((acc, f) => {
+                const identities = f.identity.split(', ');
+                identities.forEach(id => {
+                    acc[id] = (acc[id] || 0) + 1;
+                });
+                return acc;
+            }, {});
+            new Chart(document.getElementById('identityRepresentationChart'), {
+                type: 'pie',
+                data: {
+                    labels: Object.keys(identityCounts),
+                    datasets: [{
+                        label: 'Representação de Identidades',
+                        data: Object.values(identityCounts),
+                        backgroundColor: chartColors,
+                        borderColor: '#fff',
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    ...tooltipConfig,
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+
