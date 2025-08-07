@@ -1,416 +1,130 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="pt-BR">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2575.6">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; -webkit-text-stroke: #000000}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; -webkit-text-stroke: #000000; min-height: 14.0px}
-    span.s1 {font-kerning: none}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infográfico: A Evolução da Representação LGBTQ+ no Cinema Coming-of-Age</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f2f5;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 400px;
+            }
+        }
+        .gradient-text {
+            background: linear-gradient(to right, #bc5090, #ff6361);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: -21px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: #58508d;
+            border: 2px solid #f0f2f5;
+        }
+        .timeline-path {
+            position: absolute;
+            top: 20px;
+            left: -17px;
+            width: 2px;
+            height: 100%;
+            background-color: #d1d5db;
+            z-index: -1;
+        }
+        .film-card {
+            transition: all 0.4s ease-in-out;
+            overflow: hidden;
+        }
+        .card-details {
+            max-height: 0;
+            opacity: 0;
+            transition: max-height 0.4s ease-in-out, opacity 0.3s ease-in-out;
+            overflow: hidden;
+        }
+        .film-card:hover .card-details {
+            max-height: 200px;
+            opacity: 1;
+        }
+    </style>
 </head>
-<body>
-<p class="p1"><span class="s1">&lt;!DOCTYPE html&gt;</span></p>
-<p class="p1"><span class="s1">&lt;html lang="pt-BR"&gt;</span></p>
-<p class="p1"><span class="s1">&lt;head&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;title&gt;Infográfico: A Evolução da Representação LGBTQ+ no Cinema Coming-of-Age&lt;/title&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;script src="https://cdn.tailwindcss.com"&gt;&lt;/script&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;script src="https://cdn.jsdelivr.net/npm/chart.js"&gt;&lt;/script&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;link rel="preconnect" href="https://fonts.googleapis.com"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;link rel="preconnect" href="https://fonts.gstatic.com" crossorigin&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&amp;display=swap" rel="stylesheet"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;style&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>body {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-family: 'Inter', sans-serif;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>background-color: #f0f2f5;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.chart-container {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>position: relative;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>width: 100%;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>max-width: 600px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>margin-left: auto;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>margin-right: auto;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>height: 350px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>max-height: 400px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>@media (min-width: 768px) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>.chart-container {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>height: 400px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.gradient-text {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>background: linear-gradient(to right, #bc5090, #ff6361);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>-webkit-background-clip: text;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>-webkit-text-fill-color: transparent;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.timeline-item::before {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>content: '';</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>position: absolute;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>top: 20px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>left: -21px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>width: 10px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>height: 10px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>border-radius: 50%;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>background-color: #58508d;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>border: 2px solid #f0f2f5;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.timeline-path {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>position: absolute;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>top: 20px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>left: -17px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>width: 2px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>height: 100%;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>background-color: #d1d5db;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>z-index: -1;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.film-card {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>transition: all 0.4s ease-in-out;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>overflow: hidden;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.card-details {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>max-height: 0;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>opacity: 0;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>transition: max-height 0.4s ease-in-out, opacity 0.3s ease-in-out;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>overflow: hidden;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.film-card:hover .card-details {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>max-height: 200px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>opacity: 1;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/head&gt;</span></p>
-<p class="p1"><span class="s1">&lt;body class="text-gray-800"&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;header class="bg-white shadow-md p-8 text-center"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;h1 class="text-4xl md:text-5xl font-black mb-2 gradient-text"&gt;Da Tragédia à Celebração&lt;/h1&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;p class="text-lg md:text-xl max-w-4xl mx-auto text-gray-600"&gt;A evolução da representação LGBTQ+ em filmes de amadurecimento (2000-2024)&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/header&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;main class="container mx-auto p-4 md:p-8"&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;section id="introduction" class="mb-16 text-center"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;p class="text-lg max-w-3xl mx-auto"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>Esta análise visualiza uma transição paradigmática no cinema *coming of age*: de um "cinema do sofrimento", onde a identidade queer era sinônimo de trauma e punição, para um "cinema da celebração e naturalização", marcado por narrativas complexas, interseccionais e afirmativas.</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/section&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;section id="timeline" class="mb-16"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;h2 class="text-3xl font-bold text-center mb-12"&gt;Uma Jornada Cinematográfica&lt;/h2&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;div class="relative max-w-4xl mx-auto"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;div class="timeline-path"&gt;&lt;/div&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;div class="mb-12"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;h3 class="text-2xl font-bold mb-4 text-[#003f5c]"&gt;2004-2009: O Armário da Tragédia&lt;/h3&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;div class="relative pl-8 timeline-item"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;p class="mb-4"&gt;Filmes deste período inicial ligam a identidade queer ao trauma e à morte. O "armário" é uma câmara de tortura psicológica, e a revelação frequentemente culmina em tragédia, seja pelo trauma complexo de &lt;span class="font-bold"&gt;Mistérios da Carne&lt;/span&gt; ou pelo melodrama de alerta social de &lt;span class="font-bold"&gt;Orações para Bobby&lt;/span&gt;.&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;div class="mb-12"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;h3 class="text-2xl font-bold mb-4 text-[#58508d]"&gt;2014-2016: O Ponto de Virada&lt;/h3&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;div class="relative pl-8 timeline-item"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;p class="mb-4"&gt;Uma mudança decisiva ocorre em meados da década de 2010. Filmes como &lt;span class="font-bold"&gt;Hoje Eu Quero Voltar Sozinho&lt;/span&gt; naturalizam o romance gay, desvinculando-o da tragédia. O ápice é &lt;span class="font-bold"&gt;Moonlight&lt;/span&gt;, que, com sua complexidade interseccional, alcança o Oscar de Melhor Filme, provando a viabilidade crítica e comercial de novas narrativas.&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;div class="mb-12"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;h3 class="text-2xl font-bold mb-4 text-[#bc5090]"&gt;2017-2018: A Conquista do Mainstream&lt;/h3&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;div class="relative pl-8 timeline-item"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;p class="mb-4"&gt;A representação atinge o sucesso comercial com &lt;span class="font-bold"&gt;Com Amor, Simon&lt;/span&gt;, que adapta a fórmula da comédia romântica. Em contraponto, &lt;span class="font-bold"&gt;O Mau Exemplo de Cameron Post&lt;/span&gt; serve como um lembrete de que as narrativas de opressão institucional ainda coexistem com as de celebração.&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;h3 class="text-2xl font-bold mb-4 text-[#ff6361]"&gt;2019-2024: Diversificação e Novas Fronteiras&lt;/h3&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;div class="relative pl-8 timeline-item"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;p class="mb-4"&gt;O período mais recente é marcado pela normalização e diversificação. A identidade LGBTQ+ torna-se um dos vários aspectos dos personagens (&lt;span class="font-bold"&gt;Fora de Série&lt;/span&gt;), e novas identidades, como a transgênero, ganham protagonismo em gêneros populares com &lt;span class="font-bold"&gt;Tudo é Possível&lt;/span&gt;.&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/section&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;section id="film-corpus" class="mb-16"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;h2 class="text-3xl font-bold text-center mb-12"&gt;Corpus Fílmico Analisado&lt;/h2&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;div id="filmCorpusContainer" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/section&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;section id="charts" class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 mb-16"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;div class="bg-white p-6 rounded-lg shadow-md"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;h3 class="text-xl font-bold text-center mb-4"&gt;Aprovação Crítica ao Longo do Tempo (RT %)&lt;/h3&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;p class="text-center text-sm text-gray-600 mb-4"&gt;A recepção crítica positiva para filmes com temática LGBTQ+ tem se mantido consistentemente alta, indicando uma crescente aceitação e demanda por essas histórias.&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;div class="chart-container"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;canvas id="criticalReceptionChart"&gt;&lt;/canvas&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;div class="bg-white p-6 rounded-lg shadow-md"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;h3 class="text-xl font-bold text-center mb-4"&gt;Evolução da Resolução da Trama&lt;/h3&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;p class="text-center text-sm text-gray-600 mb-4"&gt;Observa-se uma clara mudança de desfechos trágicos ou ambíguos para resoluções majoritariamente positivas, refletindo a transição para narrativas mais afirmativas.&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;div class="chart-container"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;canvas id="plotResolutionChart"&gt;&lt;/canvas&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;div class="bg-white p-6 rounded-lg shadow-md"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;h3 class="text-xl font-bold text-center mb-4"&gt;Tipos de Conflito Principal&lt;/h3&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;p class="text-center text-sm text-gray-600 mb-4"&gt;Enquanto conflitos internos e sociais são constantes, a análise mostra como o foco narrativo se deslocou entre traumas psicológicos, pressões familiares e opressão institucional.&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;div class="chart-container"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;canvas id="conflictTypeChart"&gt;&lt;/canvas&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;div class="bg-white p-6 rounded-lg shadow-md"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;h3 class="text-xl font-bold text-center mb-4"&gt;Representação de Identidades no Corpus&lt;/h3&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;p class="text-center text-sm text-gray-600 mb-4"&gt;O corpus analisado, um reflexo do cinema de maior visibilidade, ainda é predominantemente focado em experiências de homens gays, apontando para a necessidade de maior diversidade.&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;div class="chart-container"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;canvas id="identityRepresentationChart"&gt;&lt;/canvas&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/section&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;section id="gaps" class="text-center bg-white p-8 rounded-lg shadow-md"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;h2 class="text-3xl font-bold mb-4"&gt;Lacunas na Representação: As Histórias Não Contadas&lt;/h2&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;p class="max-w-3xl mx-auto mb-6 text-gray-600"&gt;Apesar do progresso, a jornada por uma representatividade plena não terminou. Muitas identidades permanecem sub-representadas ou invisíveis no cinema de grande alcance.&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;div class="flex justify-center items-center space-x-8 text-lg"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;div class="flex flex-col items-center"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;span class="text-4xl mb-2"&gt;B&lt;/span&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;span class="font-bold"&gt;Bissexualidade&lt;/span&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;div class="flex flex-col items-center"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;span class="text-4xl mb-2"&gt;A&lt;/span&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;span class="font-bold"&gt;Assexualidade&lt;/span&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;div class="flex flex-col items-center"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;span class="text-4xl mb-2"&gt;NB&lt;/span&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;span class="font-bold"&gt;Não-Binariedade&lt;/span&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/section&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/main&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;footer class="text-center p-6 mt-8 bg-gray-800 text-white"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;p&gt;Infográfico gerado com base na pesquisa "A Evolução da Representação de Pessoas LGBTQ+ em Filmes do Gênero Coming of Age entre os Anos 2000 e 2024".&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/footer&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;script&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>const filmData = [</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>{ title: "Mistérios da Carne", year: 2004, director: "Gregg Araki", identity: "Gay", conflict: "Interno (Trauma)", resolution: "Ambígua", rt: 87 },</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>{ title: "Orações para Bobby", year: 2009, director: "Russell Mulcahy", identity: "Gay", conflict: "Familiar", resolution: "Trágica", rt: 67 },</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>{ title: "Tomboy", year: 2011, director: "Céline Sciamma", identity: "Identidade de Gênero", conflict: "Social", resolution: "Ambígua", rt: 96 },</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>{ title: "Azul é a Cor Mais Quente", year: 2013, director: "Abdellatif Kechiche", identity: "Lésbica", conflict: "Interno (Relacional)", resolution: "Ambígua", rt: 88 },</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>{ title: "Hoje Eu Quero Voltar Sozinho", year: 2014, director: "Daniel Ribeiro", identity: "Gay", conflict: "Interno (Independência)", resolution: "Positiva", rt: 93 },</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>{ title: "Moonlight", year: 2016, director: "Barry Jenkins", identity: "Gay", conflict: "Social (Interseccional)", resolution: "Ambígua", rt: 98 },</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>{ title: "Me Chame Pelo Seu Nome", year: 2017, director: "Luca Guadagnino", identity: "Gay", conflict: "Interno (Relacional)", resolution: "Ambígua", rt: 94 },</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>{ title: "Com Amor, Simon", year: 2017, director: "Greg Berlanti", identity: "Gay", conflict: "Social (Chantagem)", resolution: "Positiva", rt: 92 },</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>{ title: "O Mau Exemplo de Cameron Post", year: 2018, director: "Desiree Akhavan", identity: "Lésbica", conflict: "Social (Institucional)", resolution: "Positiva", rt: 86 },</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>{ title: "Fora de Série", year: 2019, director: "Olivia Wilde", identity: "Lésbica", conflict: "Interno (Amizade)", resolution: "Positiva", rt: 96 },</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>{ title: "Meus Encontros com Amber", year: 2020, director: "David Freyne", identity: "Gay, Lésbica", conflict: "Social (Pressão)", resolution: "Positiva", rt: 94 },</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>{ title: "Tudo é Possível", year: 2022, director: "Billy Porter", identity: "Transgênero", conflict: "Social (Transfobia)", resolution: "Positiva", rt: 85 }</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>];</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>const colors = {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>blue: '#003f5c',</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>purple: '#58508d',</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>pink: '#bc5090',</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>red: '#ff6361',</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>orange: '#ffa600',</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>lightGray: '#d1d5db'</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>};</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>const chartColors = [colors.purple, colors.pink, colors.red, colors.orange, colors.blue];</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>function wrapLabel(str, maxWidth) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>if (str.length &lt;= maxWidth) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>return str;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const words = str.split(' ');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>let lines = [];</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>let currentLine = '';</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>for (const word of words) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>if ((currentLine + word).length &gt; maxWidth &amp;&amp; currentLine.length &gt; 0) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>lines.push(currentLine.trim());</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>currentLine = '';</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>currentLine += word + ' ';</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>lines.push(currentLine.trim());</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>return lines;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>const tooltipConfig = {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>plugins: {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>tooltip: {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>callbacks: {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>title: function(tooltipItems) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>const item = tooltipItems[0];</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>let label = item.chart.data.labels[item.dataIndex];</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>if (Array.isArray(label)) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                               </span>return label.join(' ');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>return label;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>};</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>function populateFilmCorpus() {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const container = document.getElementById('filmCorpusContainer');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>if (!container) return;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const identityColors = {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>'Gay': { bg: 'bg-[#E15554]', text: 'text-white' }, // Terracotta</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>'Lésbica': { bg: 'bg-[#779977]', text: 'text-white' }, // Moss Green</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>'Identidade de Gênero': { bg: 'bg-[#FFC759]', text: 'text-gray-800' }, // Yellow</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>'Transgênero': { bg: 'bg-[#4D9DE0]', text: 'text-white' }, // Cyan Blue</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>'Gay, Lésbica': { bg: 'bg-[#393E46]', text: 'text-white' } // Slate Blue</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>};</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>filmData.forEach((film) =&gt; {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>const card = document.createElement('div');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>const colorInfo = identityColors[film.identity] || { bg: 'bg-gray-700', text: 'text-white' };</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">                </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>card.className = `film-card rounded-lg shadow-md p-6 flex flex-col justify-start ${colorInfo.bg} ${colorInfo.text}`;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">                </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>card.innerHTML = `</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;div class="flex-shrink-0"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;h3 class="font-bold text-xl mb-3"&gt;${film.title}&lt;/h3&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;p class="text-sm opacity-90 mb-1"&gt;&lt;span class="font-bold"&gt;Ano:&lt;/span&gt; ${film.year}&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;p class="text-sm opacity-90 mb-1"&gt;&lt;span class="font-bold"&gt;Identidade:&lt;/span&gt; ${film.identity}&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;div class="card-details mt-4"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;p class="text-sm opacity-90 mb-1"&gt;&lt;span class="font-bold"&gt;Direção:&lt;/span&gt; ${film.director}&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;p class="text-sm opacity-90 mb-1"&gt;&lt;span class="font-bold"&gt;Conflito:&lt;/span&gt; ${film.conflict}&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;p class="text-sm opacity-90"&gt;&lt;span class="font-bold"&gt;Resolução:&lt;/span&gt; ${film.resolution}&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>`;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>container.appendChild(card);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>});</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>document.addEventListener('DOMContentLoaded', () =&gt; {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>populateFilmCorpus();</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>new Chart(document.getElementById('criticalReceptionChart'), {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>type: 'line',</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>data: {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>labels: filmData.map(f =&gt; wrapLabel(`${f.title} (${f.year})`, 16)),</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>datasets: [{</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>label: 'Pontuação no Rotten Tomatoes (%)',</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>data: filmData.map(f =&gt; f.rt),</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>borderColor: colors.pink,</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>backgroundColor: 'rgba(188, 80, 144, 0.1)',</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>fill: true,</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>tension: 0.1</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>}]</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>},</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>options: {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>...tooltipConfig,</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>responsive: true,</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>maintainAspectRatio: false,</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>scales: {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>y: {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>beginAtZero: false,</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>min: 50,</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>max: 100</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>});</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const resolutionCounts = filmData.reduce((acc, f) =&gt; {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>acc[f.resolution] = (acc[f.resolution] || 0) + 1;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>return acc;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}, {});</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>new Chart(document.getElementById('plotResolutionChart'), {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>type: 'doughnut',</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>data: {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>labels: Object.keys(resolutionCounts),</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>datasets: [{</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>label: 'Resolução da Trama',</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>data: Object.values(resolutionCounts),</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>backgroundColor: chartColors,</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>borderColor: '#fff',</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>borderWidth: 2</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>}]</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>},</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>options: {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>...tooltipConfig,</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>responsive: true,</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>maintainAspectRatio: false,</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>plugins: {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>legend: {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>position: 'top',</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>});</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const conflictCounts = filmData.reduce((acc, f) =&gt; {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>const cleanConflict = f.conflict.split('(')[0].trim();</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>acc[cleanConflict] = (acc[cleanConflict] || 0) + 1;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>return acc;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}, {});</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>new Chart(document.getElementById('conflictTypeChart'), {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>type: 'bar',</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>data: {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>labels: Object.keys(conflictCounts),</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>datasets: [{</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>label: 'Número de Filmes por Tipo de Conflito',</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>data: Object.values(conflictCounts),</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>backgroundColor: chartColors,</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>}]</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>},</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>options: {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>...tooltipConfig,</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>indexAxis: 'y',</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>responsive: true,</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>maintainAspectRatio: false,</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>plugins: {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>legend: {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>display: false</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>});</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const identityCounts = filmData.reduce((acc, f) =&gt; {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>const identities = f.identity.split(', ');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>identities.forEach(id =&gt; {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>acc[id] = (acc[id] || 0) + 1;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>});</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>return acc;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}, {});</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>new Chart(document.getElementById('identityRepresentationChart'), {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>type: 'pie',</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>data: {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>labels: Object.keys(identityCounts),</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>datasets: [{</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>label: 'Representação de Identidades',</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>data: Object.values(identityCounts),</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>backgroundColor: chartColors,</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>borderColor: '#fff',</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>borderWidth: 2</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>}]</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>},</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>options: {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>...tooltipConfig,</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>responsive: true,</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>maintainAspectRatio: false,</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>plugins: {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>legend: {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>position: 'top',</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>});</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>});</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/body&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/html&gt;</span></p>
-</body>
-</html>
+<body class="text-gray-800">
+
+    <header class="bg-white shadow-md p-8 text-center">
+        <h1 class="text-4xl md:text-5xl font-black mb-2 gradient-text">Da Tragédia à Celebração</h1>
+        <p class="text-lg md:text-xl max-w-4xl mx-auto text-gray-600">A evolução da representação LGBTQ+ em filmes de amadurecimento (2000-2024)</p>
+    </header>
+
+    <main class="container mx-auto p-4 md:p-8">
+
+        <section id="introduction" class="mb-16 text-center">
+            <p class="text-lg max-w-3xl mx-auto">
+                Esta análise visualiza uma transição paradigmática no cinema *coming of age*: de um "cinema do sofrimento", onde a identidade queer era sinônimo de trauma e punição, para um "cinema da celebração e naturalização", marcado por narrativas complexas, interseccionais e afirmativas.
+            </p>
+        </section>
+
+        <section id="timeline" class="mb-16">
+            <h2 class="text-3xl font-bold text-center mb-12">Uma Jornada Cinematográfica</h2>
+            <div class="relative max-w-4xl mx-auto">
+                <div class="timeline-path"></div>
+
+                <div class="mb-12">
+                    <h3 class="text-2xl font-bold mb-4 text-[#003f5c]">2004-2009: O Armário da Tragédia</h3>
+                    <div class="relative pl-8 timeline-item">
+                        <p class="mb-4">Filmes deste período inicial ligam a identidade queer ao trauma e à morte. O "armário" é uma câmara de tortura psicológica, e a revelação frequentemente culmina em tragédia, seja pelo trauma complexo de <span class="font-bold">Mistérios da Carne</span> ou pelo melodrama de alerta social de <span class="font-bold">Orações para Bobby</span>.</p>
+                    </div>
+                </div>
+
+                <div class="mb-12">
+                    <h3 class="text-2xl font-bold mb-4 text-[#58508d]">2014-2016: O Ponto de Virada</h3>
+                    <div class="relative pl-8 timeline-item">
+                        <p class="mb-4">Uma mudança decisiva ocorre em meados da década de 2010. Filmes como <span class="font-bold">Hoje Eu Quero Voltar Sozinho</span> naturalizam o romance gay, desvinculando-o da tragédia. O ápice é <span class="font-bold">Moonlight</span>, que, com sua complexidade interseccional, alcança o Oscar de Melhor Filme, provando a viabilidade crítica e comercial de novas narrativas.</p>
+                    </div>
+                </div>
+
+                <div class="mb-12">
+                    <h3 class="text-2xl font-bold mb-4 text-[#bc5090]">2017-2018: A Conquista do Mainstream</h3>
+                    <div class="relative pl-8 timeline-item">
+                        <p class="mb-4">A representação atinge o sucesso comercial com <span class="font-bold">Com Amor, Simon</span>, que adapta a fórmula da comédia romântica. Em contraponto, <span class="font-bold">O Mau Exemplo de Cameron Post</span> serve como um lembrete de que as narrativas de opressão institucional ainda coexistem com as de celebração.</p>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-2xl font-bold mb-4 text-[#ff6361]">2019-2024: Diversificação e Novas Fronteiras</h3>
+                    <div class="relative pl-8 timeline-item">
+                        <p class="mb-4">O período mais recente é marcado pela normalização e diversificação. A identidade LGBTQ+ torna-se um dos vários aspectos dos personagens (<span class="font-bold">Fora de Série</span>), e novas identidades, como a transgênero, ganham protagonismo em gêneros populares com <span class="font-bold">Tudo é Possível</span>.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="film-corpus" class="mb-16">
+            <h2 class="text-3xl font-bold text-center mb-12">Corpus Fílmico Analisado</h2>
+            <div id="filmCorpusContainer" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+            </div>
+        </section>
+
+        <section id="charts" class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 mb-16">
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <h3 class="text-xl font-bold text-center mb-4">Aprovação Crítica ao Longo do Tempo (RT
