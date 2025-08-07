@@ -54,8 +54,14 @@
             z-index: -1;
         }
         .film-card {
+            flex-grow: 1;
+            flex-basis: 250px;
             transition: all 0.4s ease-in-out;
             overflow: hidden;
+            position: relative;
+        }
+        .film-card.expanded {
+            flex-grow: 4;
         }
         .card-details {
             max-height: 0;
@@ -63,7 +69,7 @@
             transition: max-height 0.4s ease-in-out, opacity 0.3s ease-in-out;
             overflow: hidden;
         }
-        .film-card:hover .card-details {
+        .film-card.expanded .card-details {
             max-height: 200px;
             opacity: 1;
         }
@@ -73,14 +79,14 @@
 
     <header class="bg-white shadow-md p-8 text-center">
         <h1 class="text-4xl md:text-5xl font-black mb-2 gradient-text">Da Tragédia à Celebração</h1>
-        <p class="text-lg md:text-xl max-w-4xl mx-auto text-gray-600">A evolução da representação LGBTQ+ no cinema Coming of Age (2000-2024)</p>
+        <p class="text-lg md:text-xl max-w-4xl mx-auto text-gray-600">A evolução da representação LGBTQ+ em filmes de amadurecimento (2000-2024)</p>
     </header>
 
     <main class="container mx-auto p-4 md:p-8">
 
         <section id="introduction" class="mb-16 text-center">
             <p class="text-lg max-w-3xl mx-auto">
-                Esta análise visualiza uma transição paradigmática no cinema coming of age: <br> de um "cinema do sofrimento", onde a identidade queer era sinônimo de trauma e punição, para um "cinema da celebração e naturalização", marcado por narrativas complexas, interseccionais e afirmativas.
+                Esta análise visualiza uma transição paradigmática no cinema *coming of age*: de um "cinema do sofrimento", onde a identidade queer era sinônimo de trauma e punição, para um "cinema da celebração e naturalização", marcado por narrativas complexas, interseccionais e afirmativas.
             </p>
         </section>
 
@@ -90,7 +96,7 @@
                 <div class="timeline-path"></div>
 
                 <div class="mb-12">
-                    <h3 class="text-2xl font-bold mb-4 text-[#003f5c]">2004-2009: O Armário como Tragédia</h3>
+                    <h3 class="text-2xl font-bold mb-4 text-[#003f5c]">2004-2009: O Armário da Tragédia</h3>
                     <div class="relative pl-8 timeline-item">
                         <p class="mb-4">Filmes deste período inicial ligam a identidade queer ao trauma e à morte. O "armário" é uma câmara de tortura psicológica, e a revelação frequentemente culmina em tragédia, seja pelo trauma complexo de <span class="font-bold">Mistérios da Carne</span> ou pelo melodrama de alerta social de <span class="font-bold">Orações para Bobby</span>.</p>
                     </div>
@@ -121,7 +127,7 @@
 
         <section id="film-corpus" class="mb-16">
             <h2 class="text-3xl font-bold text-center mb-12">Corpus Fílmico Analisado</h2>
-            <div id="filmCorpusContainer" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+            <div id="filmCorpusContainer" class="flex flex-wrap gap-8">
             </div>
         </section>
 
@@ -178,23 +184,23 @@
     </main>
 
     <footer class="text-center p-6 mt-8 bg-gray-800 text-white">
-        <p>Infográfico gerado com base na pesquisa "A Evolução da Representação de Pessoas LGBTQ+ em Filmes do Gênero Coming of Age entre os Anos 2000 e 2024" <br> Realização: Lucas Vinicius de Souza, graduando em Comunicação e Multimeios pela PUC-SP, com orientação da Profª. Elizabeth Alfeld. </p>
+        <p>Infográfico gerado com base na pesquisa "A Evolução da Representação de Pessoas LGBTQ+ em Filmes do Gênero Coming of Age entre os Anos 2000 e 2024".</p>
     </footer>
 
     <script>
         const filmData = [
-            { title: "Mistérios da Carne", year: 2004, director: "Gregg Araki", identity: "Gay", conflict: "Interno (Trauma)", resolution: "Ambígua", rt: 87 },
-            { title: "Orações para Bobby", year: 2009, director: "Russell Mulcahy", identity: "Gay", conflict: "Familiar", resolution: "Trágica", rt: 67 },
-            { title: "Tomboy", year: 2011, director: "Céline Sciamma", identity: "Identidade de Gênero", conflict: "Social", resolution: "Ambígua", rt: 96 },
-            { title: "Azul é a Cor Mais Quente", year: 2013, director: "Abdellatif Kechiche", identity: "Lésbica", conflict: "Interno (Relacional)", resolution: "Ambígua", rt: 88 },
-            { title: "Hoje Eu Quero Voltar Sozinho", year: 2014, director: "Daniel Ribeiro", identity: "Gay", conflict: "Interno (Independência)", resolution: "Positiva", rt: 93 },
-            { title: "Moonlight", year: 2016, director: "Barry Jenkins", identity: "Gay", conflict: "Social (Interseccional)", resolution: "Ambígua", rt: 98 },
-            { title: "Me Chame Pelo Seu Nome", year: 2017, director: "Luca Guadagnino", identity: "Gay", conflict: "Interno (Relacional)", resolution: "Ambígua", rt: 94 },
-            { title: "Com Amor, Simon", year: 2017, director: "Greg Berlanti", identity: "Gay", conflict: "Social (Chantagem)", resolution: "Positiva", rt: 92 },
-            { title: "O Mau Exemplo de Cameron Post", year: 2018, director: "Desiree Akhavan", identity: "Lésbica", conflict: "Social (Institucional)", resolution: "Positiva", rt: 86 },
-            { title: "Fora de Série", year: 2019, director: "Olivia Wilde", identity: "Lésbica", conflict: "Interno (Amizade)", resolution: "Positiva", rt: 96 },
-            { title: "Meus Encontros com Amber", year: 2020, director: "David Freyne", identity: "Gay, Lésbica", conflict: "Social (Pressão)", resolution: "Positiva", rt: 94 },
-            { title: "Tudo é Possível", year: 2022, director: "Billy Porter", identity: "Transgênero", conflict: "Social (Transfobia)", resolution: "Positiva", rt: 85 }
+            { title: "Mistérios da Carne", year: 2004, director: "Gregg Araki", identity: "Gay", flag: "gay", conflict: "Interno (Trauma)", resolution: "Ambígua", rt: 87 },
+            { title: "Orações para Bobby", year: 2009, director: "Russell Mulcahy", identity: "Gay", flag: "gay", conflict: "Familiar", resolution: "Trágica", rt: 67 },
+            { title: "Tomboy", year: 2011, director: "Céline Sciamma", identity: "Identidade de Gênero", flag: "trans", conflict: "Social", resolution: "Ambígua", rt: 96 },
+            { title: "Azul é a Cor Mais Quente", year: 2013, director: "Abdellatif Kechiche", identity: "Lésbica", flag: "lesbian", conflict: "Interno (Relacional)", resolution: "Ambígua", rt: 88 },
+            { title: "Hoje Eu Quero Voltar Sozinho", year: 2014, director: "Daniel Ribeiro", identity: "Gay", flag: "gay", conflict: "Interno (Independência)", resolution: "Positiva", rt: 93 },
+            { title: "Moonlight", year: 2016, director: "Barry Jenkins", identity: "Gay", flag: "gay", conflict: "Social (Interseccional)", resolution: "Ambígua", rt: 98 },
+            { title: "Me Chame Pelo Seu Nome", year: 2017, director: "Luca Guadagnino", identity: "Gay", flag: "gay", conflict: "Interno (Relacional)", resolution: "Ambígua", rt: 94 },
+            { title: "Com Amor, Simon", year: 2017, director: "Greg Berlanti", identity: "Gay", flag: "gay", conflict: "Social (Chantagem)", resolution: "Positiva", rt: 92 },
+            { title: "O Mau Exemplo de Cameron Post", year: 2018, director: "Desiree Akhavan", identity: "Lésbica", flag: "lesbian", conflict: "Social (Institucional)", resolution: "Positiva", rt: 86 },
+            { title: "Fora de Série", year: 2019, director: "Olivia Wilde", identity: "Lésbica", flag: "lesbian", conflict: "Interno (Amizade)", resolution: "Positiva", rt: 96 },
+            { title: "Meus Encontros com Amber", year: 2020, director: "David Freyne", identity: "Gay, Lésbica", flag: "pride", conflict: "Social (Pressão)", resolution: "Positiva", rt: 94 },
+            { title: "Tudo é Possível", year: 2022, director: "Billy Porter", identity: "Transgênero", flag: "trans", conflict: "Social (Transfobia)", resolution: "Positiva", rt: 85 }
         ];
 
         const colors = {
@@ -232,23 +238,70 @@
             }
         };
 
+        function createFlagHTML(flagType) {
+            const flagBaseClasses = "absolute bottom-4 right-4 w-10 h-6 rounded overflow-hidden shadow-lg";
+            
+            switch (flagType) {
+                case 'gay':
+                     return `
+                        <div class="${flagBaseClasses} flex flex-col">
+                            <div class="h-1/5" style="background-color: #078d70;"></div>
+                            <div class="h-1/5" style="background-color: #98e8c1;"></div>
+                            <div class="h-1/5" style="background-color: #ffffff;"></div>
+                            <div class="h-1/5" style="background-color: #7bade2;"></div>
+                            <div class="h-1/5" style="background-color: #5049cb;"></div>
+                        </div>`;
+                case 'pride':
+                    return `
+                        <div class="${flagBaseClasses} flex flex-col">
+                            <div class="h-1/6 bg-red-500"></div>
+                            <div class="h-1/6 bg-orange-500"></div>
+                            <div class="h-1/6 bg-yellow-400"></div>
+                            <div class="h-1/6 bg-green-500"></div>
+                            <div class="h-1/6 bg-blue-500"></div>
+                            <div class="h-1/6 bg-purple-500"></div>
+                        </div>`;
+                case 'lesbian':
+                    return `
+                        <div class="${flagBaseClasses} flex flex-col">
+                            <div class="h-1/5" style="background-color: #D52D00;"></div>
+                            <div class="h-1/5" style="background-color: #FF9A56;"></div>
+                            <div class="h-1/5" style="background-color: #FFFFFF;"></div>
+                            <div class="h-1/5" style="background-color: #D362A4;"></div>
+                            <div class="h-1/5" style="background-color: #A30262;"></div>
+                        </div>`;
+                case 'trans':
+                    return `
+                        <div class="${flagBaseClasses} flex flex-col">
+                            <div class="h-1/5 bg-sky-400"></div>
+                            <div class="h-1/5 bg-pink-400"></div>
+                            <div class="h-1/5 bg-white"></div>
+                            <div class="h-1/5 bg-pink-400"></div>
+                            <div class="h-1/5 bg-sky-400"></div>
+                        </div>`;
+                default:
+                    return '';
+            }
+        }
+
         function populateFilmCorpus() {
             const container = document.getElementById('filmCorpusContainer');
             if (!container) return;
 
-            const identityColors = {
-                'Gay': { bg: 'bg-[#E15554]', text: 'text-white' }, // Terracotta
-                'Lésbica': { bg: 'bg-[#779977]', text: 'text-white' }, // Moss Green
-                'Identidade de Gênero': { bg: 'bg-[#FFC759]', text: 'text-gray-800' }, // Yellow
-                'Transgênero': { bg: 'bg-[#4D9DE0]', text: 'text-white' }, // Cyan Blue
-                'Gay, Lésbica': { bg: 'bg-[#393E46]', text: 'text-white' } // Slate Blue
+            const identityGradients = {
+                'Gay': { gradient: 'linear-gradient(to right, #f9c74f, #f8961e)', text: 'text-gray-800' },
+                'Lésbica': { gradient: 'linear-gradient(to right, #6a639c, #005f73)', text: 'text-white' },
+                'Identidade de Gênero': { gradient: 'linear-gradient(to right, #c06c84, #f67280)', text: 'text-white' },
+                'Transgênero': { gradient: 'linear-gradient(to right, #c06c84, #f67280)', text: 'text-white' },
+                'Gay, Lésbica': { gradient: 'linear-gradient(to bottom right, #f9c74f, #6a639c)', text: 'text-white' }
             };
 
             filmData.forEach((film) => {
                 const card = document.createElement('div');
-                const colorInfo = identityColors[film.identity] || { bg: 'bg-gray-700', text: 'text-white' };
+                const styleInfo = identityGradients[film.identity] || { gradient: 'linear-gradient(to right, #4a5568, #2d3748)', text: 'text-white' };
                 
-                card.className = `film-card rounded-lg shadow-md p-6 flex flex-col justify-start ${colorInfo.bg} ${colorInfo.text}`;
+                card.className = `film-card rounded-lg shadow-md p-6 flex flex-col justify-start ${styleInfo.text}`;
+                card.style.backgroundImage = styleInfo.gradient;
                 
                 card.innerHTML = `
                     <div class="flex-shrink-0">
@@ -260,14 +313,34 @@
                         <p class="text-sm opacity-90 mb-1"><span class="font-bold">Direção:</span> ${film.director}</p>
                         <p class="text-sm opacity-90 mb-1"><span class="font-bold">Conflito:</span> ${film.conflict}</p>
                         <p class="text-sm opacity-90"><span class="font-bold">Resolução:</span> ${film.resolution}</p>
+                        ${createFlagHTML(film.flag)}
                     </div>
                 `;
                 container.appendChild(card);
             });
         }
 
+        function setupCardHover() {
+            const container = document.getElementById('filmCorpusContainer');
+            if (!container) return;
+            const cards = Array.from(container.children);
+            if (!cards.length) return;
+
+            cards.forEach(card => {
+                card.addEventListener('mouseover', () => {
+                    cards.forEach(c => c.classList.remove('expanded'));
+                    card.classList.add('expanded');
+                });
+            });
+
+            container.addEventListener('mouseleave', () => {
+                cards.forEach(c => c.classList.remove('expanded'));
+            });
+        }
+
         document.addEventListener('DOMContentLoaded', () => {
             populateFilmCorpus();
+            setupCardHover();
 
             let trembleInterval = null;
             new Chart(document.getElementById('criticalReceptionChart'), {
